@@ -45,9 +45,10 @@ export default function Login() {
             });
         },
         onError: (error: any) => {
+            console.log(error);
             toast({
                 title: 'Error',
-                description: error,
+                description: 'An Error occured while login, please try again',
                 status: 'error',
                 position: 'top-right',
                 duration: 6000,

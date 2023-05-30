@@ -19,7 +19,7 @@ export default function useForm({ validationSchema, defaultValues, onSubmit, met
 
     const { handleSubmit, watch, formState, getValues } = methods
 
-    const renderForm = (children: React.ReactNode) => {
+    const renderForm = React.useCallback((children: React.ReactNode) => {
         return (
             <FormProvider {...methods}>
                 <form method={method} onSubmit={handleSubmit(onSubmit)}>
@@ -27,7 +27,7 @@ export default function useForm({ validationSchema, defaultValues, onSubmit, met
                 </form>
             </FormProvider>
         )
-    };
+    }, [handleSubmit, method, methods, onSubmit]);
     return {
         renderForm,
         watch,
