@@ -2,6 +2,7 @@
 import { Box, Flex } from '@chakra-ui/react'
 import Image from 'next/image'
 import Logo from '../../../public/images/logo-ct.png'
+import SendMail from '../../../public/images/mailbox.svg'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
@@ -19,7 +20,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 
                 <Flex flex={`1`} marginTop={`20px`} shadow={`lg`}>
 
-                    <Flex flex="1" backgroundColor='black' display={['none', 'flex']}></Flex>
+                    <Flex flex="1" backgroundColor='lightgrey' display={['none', 'flex']} justifyContent={'center'} alignItems={'center'}>
+                        <Image src={SendMail} alt='company logo'  style={{ width: '80%', height: '100%' }} />
+                    </Flex>
 
                     <Box flex={1} width="100%" backgroundColor='white'>
                         {children}
