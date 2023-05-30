@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -104,4 +104,45 @@ a {
   html {
     color-scheme: dark;
   }
+} */
+
+/* custom fonts */
+@font-face {
+  font-family: 'NotoSans-Bold';
+  src: url('../../public/fonts/NotoSans-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'NotoSans-Medium';
+  src: url('../../public/fonts/NotoSans-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'NotoSans-Regular';
+  src: url('../../public/fonts/NotoSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'NotoSans-Light';
+  src: url('../../public/fonts/NotoSans-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Satoshi-Bold';
+  src: url('../../public/fonts/Satoshi-Bold.otf');
+}
+
+@font-face {
+  font-family: 'Satoshi-Medium';
+  src: url('../../public/fonts/Satoshi-Medium.otf');
+}
+
+@font-face {
+  font-family: 'Satoshi-Regular';
+  src: url('../../public/fonts/Satoshi-Regular.otf');
+}
+
+@font-face {
+  font-family: 'Satoshi-Light';
+  src: url('../../public/fonts/Satoshi-Light.otf');
 }
