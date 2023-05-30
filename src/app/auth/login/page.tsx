@@ -9,6 +9,7 @@ import { LoginSchema } from '@/app/services/validations';
 import { useDetails } from '@/app/state/useDetails';
 import { Flex, VStack, useToast } from '@chakra-ui/react'
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useMutation } from 'react-query';
 
 type LoginData = {
@@ -27,6 +28,7 @@ type LoginData = {
 
 export default function Login() {
     const toast = useToast();
+    const router = useRouter();
     const { setAll } = useDetails((state) => state);
     
     const { mutate, isLoading } = useMutation({
@@ -43,6 +45,7 @@ export default function Login() {
                 duration: 6000,
                 isClosable: true,
             });
+            router.push('/dashboard');
         },
         onError: (error: any) => {
             console.log(error);
