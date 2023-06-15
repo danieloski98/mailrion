@@ -1,0 +1,27 @@
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+option {
+  color: black;
+}
+
+@font-face {
+  font-family: 'Satoshi-Bold';
+  src: url('../../public/fonts/Satoshi-Bold.otf');
+}
+
+@font-face {
+  font-family: 'Satoshi-Medium';
+  src: url('../../public/fonts/Satoshi-Medium.otf');
+}
+
+@font-face {
+  font-family: 'Satoshi-Regular';
+  src: url('../../public/fonts/Satoshi-Regular.otf');
+}
+
+@font-face {
+  font-family: 'Satoshi-Light';
+  src: url('../../public/fonts/Satoshi-Light.otf');
+}
