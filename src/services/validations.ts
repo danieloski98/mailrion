@@ -15,7 +15,7 @@ const smtpUserSchema = z.object({
     name: z.string().nonempty(),
     password: z.string().nonempty().min(8),
     hostname: z.string().nonempty(),
-    username: z.string().nonempty(),
+    username: z.string().nonempty().email('Invalid email'),
 });
 
 export { LoginSchema, SignupSchema, smtpUserSchema }

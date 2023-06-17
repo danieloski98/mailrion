@@ -6,7 +6,7 @@ import { z } from 'zod';
 
 interface IProps {
     defaultValues: Record<string, any>;
-    validationSchema: z.Schema<any>;
+    validationSchema?: z.Schema<any>;
     onSubmit: (data: any) => void;
     method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 }

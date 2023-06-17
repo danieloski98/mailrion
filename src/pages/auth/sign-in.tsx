@@ -32,6 +32,8 @@ import httpService from 'services/httpService';
 import { useRouter } from 'next/router';
 import Input from 'components/form/Input';
 import { useDetails } from 'states/useDetails';
+import { useSmtpAccount } from 'states/useActiveInbox';
+import { SmtpUserModel } from 'models/SmtpUsers';
 
 export type LoginData = {
     accessToken: string,
@@ -48,7 +50,8 @@ export type LoginData = {
 }
 
 export default function SignIn() {
-	const { setAll } = useDetails((state) => state)
+	const { setAll } = useDetails((state) => state);
+	const { setAll: setUser } = useSmtpAccount((state) => state)
 	// Chakra color mode
 	const textColor = useColorModeValue('navy.700', 'white');
 	const textColorSecondary = 'gray.400';
@@ -63,16 +66,33 @@ export default function SignIn() {
         onSuccess: (data: any) => {
 			localStorage.setItem('token', (data.data as LoginData).accessToken);
             localStorage.setItem('authUser', JSON.stringify((data.data as LoginData)));
-            setAll({ ...(data.data as LoginData).user.attributes });
-            toast({
-                title: 'success',
-                description:' Account created',
-                status: 'success',
-                position: 'top-right',
-                duration: 6000,
-                isClosable: true,
-            });
-            router.push('/admin');
+			const user: SmtpUserModel = JSON.parse(localStorage.getItem("ActiveAccount"));
+
+			if (user === null || user.id === undefined) {
+				toast({
+					title: 'No User selected',
+					description: 'Select an Inbox',
+					status: 'warning',
+					isClosable: true,
+					position: 'top-right',
+					duration: 6000,
+				})
+				router.push('/admin/users');
+				return;
+			} else {
+				setUser(user);
+				setAll({ ...(data.data as LoginData).user.attributes, id: (data.data as LoginData).user.id });
+				toast({
+					title: 'success',
+					description:' Account created',
+					status: 'success',
+					position: 'top-right',
+					duration: 6000,
+					isClosable: true,
+				});
+				router.push('/admin');
+			}
+            
         },
         onError: (error: any) => {
 			console.log(error);
