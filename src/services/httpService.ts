@@ -1,6 +1,6 @@
 import Axios, { AxiosError } from 'axios';
 
-export const url = `http://api.mailrion.net/api/v1/`
+export const url = `https://api.mailrion.net/api/v1/`
 //`https://api-mailrion.herokuapp.com/api/v1/`
 
 
